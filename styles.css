@@ -1,0 +1,113 @@
+nav {
+  background-color: #336699;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+
+}
+
+nav ul li {
+  flex: 1;
+  text-align: center;
+}
+
+nav ul li img {
+  height: auto;
+  max-height: 100px;
+  width: auto;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+nav ul li a:hover {
+  background-color: #4d4d4d;
+}
+
+#carousel {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: none;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  display: block;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  cursor: pointer;
+}
+
+.carousel-arrow:hover {
+  /* existing properties */
+  color: blue;
+  /* change arrow color on hover */
+  transform: scale(1.2);
+  /* increase arrow size on hover */
+}
+
+.carousel-arrow-prev {
+  left: 0;
+}
+
+.carousel-arrow-next {
+  right: 0;
+}
+
+.carousel-arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.carousel-arrow-prev::before {
+  border-right: 8px solid black;
+}
+
+.carousel-arrow-next::before {
+  margin-left: -8px;
+  border-left: 8px solid black;
+}

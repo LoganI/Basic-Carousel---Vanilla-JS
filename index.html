@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>King's Treasure</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><img
+            src="https://images.squarespace-cdn.com/content/v1/5ac2bdf3fcf7fdf4516b6093/1525216004574-NNMWVADXUV67WO4ERV5D/KT_Logo_v01_01+%5BConverted%5D.png?format=1500w"
+            alt="Logo"></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#catalog">Catalog</a></li>
+        <li><a href="#events">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#resources">Locations</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="carousel">
+    <div class="carousel-item active">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/5ac2bdf3fcf7fdf4516b6093/1522785104782-LTQ3RY5OG7RGE91SHALE/fe2f807abffc11e1b2fe1231380205bf_7.jpg?format=2500w"
+        alt="Image 1">
+      <div class="carousel-caption">
+        <h3>Caption 1</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/5ac2bdf3fcf7fdf4516b6093/1522785116266-M8K4CSBPOAF826MNWM6C/hispanic_family_w_baby.jpeg?format=2500w"
+        alt="Image 2">
+      <div class="carousel-caption">
+        <h3>Caption 2</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/5ac2bdf3fcf7fdf4516b6093/1522785121859-E3L2PI83CM7S7YKTJJAK/family_banner.jpg?format=2500w"
+        alt="Image 3">
+      <div class="carousel-caption">
+        <h3>Caption 3</h3>
+      </div>
+    </div>
+    <div class="carousel-arrow carousel-arrow-prev"></div>
+    <div class="carousel-arrow carousel-arrow-next"></div>
+  </div>
+  <script>
+    var slideInterval;
+    var slides = document.querySelectorAll(".carousel-item");
+
+
+    // Show the next slide
+    function nextSlide() {
+      clearInterval(slideInterval);
+      var currentPic = document.querySelector(".carousel-item.active");
+      var nextPic;
+
+      if (currentPic?.nextElementSibling) { // If the next slide exists.
+        nextPic = currentPic.nextElementSibling;
+        currentPic.classList.remove("active");
+        nextPic.classList.add("active");
+      }
+
+      if (currentPic == slides[slides.length - 1]) { // If on the last slide.
+        nextPic = slides[0];
+        slides[slides.length - 1].classList.remove("active");
+        nextPic.classList.add("active");
+      }
+
+      slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Show the previous slide
+    function prevSlide() {
+      clearInterval(slideInterval);
+      var currentPic = document.querySelector(".carousel-item.active");
+      var nextPic;
+      if (currentPic?.previousElementSibling) {
+        nextPic = currentPic.previousElementSibling;
+        currentPic.classList.remove("active");
+        nextPic.classList.add("active");
+      } else {
+        nextPic = slides[slides.length - 1];
+        slides[0].classList.remove("active");
+        nextPic.classList.add("active");
+      }
+      slideInterval = setInterval(prevSlide, 5000);
+    }
+
+    // Initialize the carousel
+    window.onload = function () {
+      var nextArrow = document.querySelector(".carousel-arrow-next");
+      var prevArrow = document.querySelector(".carousel-arrow-prev");
+      nextArrow.addEventListener("click", nextSlide);
+      prevArrow.addEventListener("click", prevSlide);
+
+      if (slides.length > 0) {
+        slideInterval = setInterval(nextSlide, 5000);
+      }
+    }
+  </script>
+
+
+
+</body>
+
+</html>
